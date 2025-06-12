@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note right of browser: El usuario escribe una nota y hace clic en "Save"
+
+    Note right of browser: La SPA maneja el evento con JavaScript
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    server-->>browser: 200 OK (nota guardada)
+    deactivate server
+
+    Note right of browser: El navegador actualiza la lista de notas en la interfaz sin recargar la página
